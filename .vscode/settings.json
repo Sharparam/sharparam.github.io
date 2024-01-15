@@ -5,6 +5,7 @@
   },
   "eslint.nodePath": ".yarn/sdks",
   "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
+  "stylelint.packageManager": "yarn",
   "[json]": {
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
