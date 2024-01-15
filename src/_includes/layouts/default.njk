@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or metadata.title }}</title>
+  <title>{% if title and title != metadata.title %}{{ title }} | {{ metadata.title }}{% else %}{{ metadata.title }}{% endif %}</title>
   <meta property="og:title" content="{{ title or metadata.title }}" />
   <meta property="og:site_name" content="{{ metadata.title }}" />
   <meta name="description" content="{{ description or metadata.description }}" />
   <meta property="og:description" content="{{ description or metadata.description }}" />
   <meta property="og:locale" content="{{ metadata.locale }}" />
-  <link rel="canonical" href="{{ metadata.url }}" />
-  <meta property="og:url" content="{{ metadata.url }}" />
+  <link rel="canonical" href="{{ page.url | htmlBaseUrl(metadata.canonical_url) }}" />
+  <meta property="og:url" content="{{ page.url | htmlBaseUrl(metadata.url) }}" />
   <meta name="generator" content="{{ eleventy.generator }}" />
   <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metadata.title }}" />
   <link rel="alternate" href="/feed.json" type="application/json" title="{{ metadata.title }}" />
@@ -19,17 +19,6 @@
 </head>
 <body>
   <header>
-    {# <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav> #}
-    {# <nav>
-      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
-    </nav> #}
     {% include 'nav.njk' %}
   </header>
   <main>
@@ -39,24 +28,11 @@
     <p>&copy; 2020-2024 by <a href="https://github.com/Sharparam">Adam Hellberg</a>.</p>
     <p>Content is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND</a> license.</p>
     <ul class="socials">
+      {% for social in metadata.socials %}{% if social.footer === true %}
       <li>
-        <a href="https://github.com/Sharparam">GitHub</a>
+        <a href="{{ social.url }}">{{ social.name }}</a>
       </li>
-      <li>
-        <a href="https://twitter.com/Sharparam">Twitter</a>
-      </li>
-      <li>
-        <a href="https://t.me/sharparam">Telegram</a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/user/F16Gaming">YouTube</a>
-      </li>
-      <li>
-        <a href="https://keybase.io/sharparam">Keybase</a>
-      </li>
-      <li>
-        <a href="mailto:sharparam@sharparam.com">Email</a>
-      </li>
+      {% endif %}{% endfor %}
   </ul>
   </footer>
 </body>

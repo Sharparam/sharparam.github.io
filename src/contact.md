@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Contact
 eleventyNavigation:
   key: Contact
   order: 4
@@ -37,17 +38,13 @@ My key details:
 
 My domain also supports [WKD][] if you’d like to make use of that for discovering my keys.
 
-Full list of social profiles:
+## Social profiles
 
- - GitHub
- - Stack Overflow
- - Twitter
- - Telegram
- - LinkedIn
- - Reddit
- - YouTube
- - Keybase
- - Email
+<ul>
+{% for social in metadata.socials %}
+ <li><a href="{{ social.url }}">{{ social.name }}</a></li>
+{% endfor %}
+</ul>
 
 [keybase-sharparam]: https://keybase.io/sharparam
 [wkd]: https://wiki.gnupg.org/WKD

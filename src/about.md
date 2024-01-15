@@ -1,5 +1,6 @@
 ---
 layout: default
+title: About
 eleventyNavigation:
   key: About
   order: 3
