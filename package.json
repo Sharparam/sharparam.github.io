@@ -20,7 +20,7 @@
     "url": "https://github.com/Sharparam/sharparam.github.io.git"
   },
   "scripts": {
-    "lint:eslint": "eslint --cache src public",
+    "lint:eslint": "eslint --cache .",
     "lint:ts": "tsc --pretty --noEmit",
     "build": "eleventy",
     "build:debug": "DEBUG=Eleventy* eleventy",
