@@ -8,7 +8,7 @@ eleventyNavigation:
 
 # About me
 
-I've been programming for a large part of my life.
+I’ve been programming for a large part of my life.
 Since I was about 10 or 11 years old in fact.
 It started with animated PowerPoint slides, progressing into batch scripts on Windows, then some adventures in C++ before I landed in C# and Lua as my main languages.
 
