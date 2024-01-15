@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="{{ metadata.language }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title or metadata.title }}</title>
+  <meta property="og:title" content="{{ title or metadata.title }}" />
+  <meta property="og:site_name" content="{{ metadata.title }}" />
+  <meta name="description" content="{{ description or metadata.description }}" />
+  <meta property="og:description" content="{{ description or metadata.description }}" />
+  <meta property="og:locale" content="{{ metadata.locale }}" />
+  <link rel="canonical" href="{{ metadata.url }}" />
+  <meta property="og:url" content="{{ metadata.url }}" />
+  <meta name="generator" content="{{ eleventy.generator }}" />
+  <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="{{ metadata.title }}" />
+  <link rel="alternate" href="/feed.json" type="application/json" title="{{ metadata.title }}" />
+  <link rel="stylesheet" media="screen" href="/css/normalize.css" />
+  <link rel="stylesheet" media="screen" href="/css/main.css" />
+</head>
+<body>
+  <header>
+    {# <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav> #}
+    {# <nav>
+      {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+    </nav> #}
+    {% include 'nav.njk' %}
+  </header>
+  <main>
+    {{ content | safe }}
+  </main>
+  <footer>
+    <p>&copy; 2020-2024 by <a href="https://github.com/Sharparam">Adam Hellberg</a>.</p>
+    <p>Content is licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND</a> license.</p>
+    <ul class="socials">
+      <li>
+        <a href="https://github.com/Sharparam">GitHub</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/Sharparam">Twitter</a>
+      </li>
+      <li>
+        <a href="https://t.me/sharparam">Telegram</a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/user/F16Gaming">YouTube</a>
+      </li>
+      <li>
+        <a href="https://keybase.io/sharparam">Keybase</a>
+      </li>
+      <li>
+        <a href="mailto:sharparam@sharparam.com">Email</a>
+      </li>
+  </ul>
+  </footer>
+</body>
+</html>

@@ -1,60 +1,63 @@
-const { DateTime } = require('luxon');
+import { DateTime } from "luxon";
 
-const markdownItAnchor = require('markdown-it-anchor');
+import markdownItAnchor from "markdown-it-anchor";
 
-const { EleventyHtmlBasePlugin } = require('@11ty/eleventy');
-const navigationPlugin = require('@11ty/eleventy-navigation');
-const rssPlugin = require('@11ty/eleventy-plugin-rss');
-const syntaxPlugin = require('@11ty/eleventy-plugin-syntaxhighlight');
+import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
+import navigationPlugin from "@11ty/eleventy-navigation";
+import rssPlugin from "@11ty/eleventy-plugin-rss";
+import syntaxPlugin from "@11ty/eleventy-plugin-syntaxhighlight";
 
-module.exports = function(config) {
+export default function (config) {
   config.addPlugin(EleventyHtmlBasePlugin);
   config.addPlugin(navigationPlugin);
   config.addPlugin(rssPlugin);
   config.addPlugin(syntaxPlugin);
 
   config.addPassthroughCopy({
-    './public/': '/'
+    "./public/": "/"
   });
 
-  config.addWatchTarget('public/**.*');
+  config.addWatchTarget("public/**.*");
 
   config.setLayoutResolution(false);
-  config.addLayoutAlias('default', 'layouts/default.njk');
-  config.addLayoutAlias('post', 'layouts/blog/post.njk');
+  config.addLayoutAlias("default", "layouts/default.njk");
+  config.addLayoutAlias("post", "layouts/blog/post.njk");
 
-  config.addFilter('htmlDate', date => DateTime.fromJSDate(date, { zone: 'utc' }).toFormat('yyyy-LL-dd'));
-  config.addFilter('humanDate', (date, format, zone) => DateTime.fromJSDate(date, { zone: zone || 'utc' }).toFormat(format || 'dd LLLL yyyy'));
-  config.addFilter('postUrlDate', date => DateTime.fromJSDate(date, { zone: 'utc' }).toFormat('yyyy/LL/dd'));
+  config.addFilter("htmlDate", (date) =>
+    DateTime.fromJSDate(date, { zone: "utc" }).toFormat("yyyy-LL-dd")
+  );
+  config.addFilter("humanDate", (date, format, zone) =>
+    DateTime.fromJSDate(date, { zone: zone || "utc" }).toFormat(
+      format || "dd LLLL yyyy"
+    )
+  );
+  config.addFilter("postUrlDate", (date) =>
+    DateTime.fromJSDate(date, { zone: "utc" }).toFormat("yyyy/LL/dd")
+  );
 
-  config.amendLibrary('md', md => {
+  config.amendLibrary("md", (md) => {
     md.use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.ariaHidden({
-        placement: 'after',
-        class: 'header-anchor',
-        symbol: '#',
+        placement: "after",
+        class: "header-anchor",
+        symbol: "#",
         ariaHidden: false
       }),
       level: [1, 2, 3, 4],
-      slugify: config.getFilter('slugify')
+      slugify: config.getFilter("slugify")
     });
   });
 
   return {
-    templateFormats: [
-      'md',
-      'njk',
-      'html',
-      'liquid'
-    ],
-    markdownTemplateEngine: 'njk',
-    htmlTemplateEngine: 'njk',
+    templateFormats: ["md", "njk", "html", "11ty.js"],
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
     dir: {
-      input: 'content',
-      includes: '../_includes',
-      data: '../_data',
-      output: '_site'
+      input: "src",
+      includes: "_includes",
+      data: "_data",
+      output: "_site"
     },
-    pathPrefix: '/'
+    pathPrefix: "/"
   };
-};
+}
