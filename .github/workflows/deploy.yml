@@ -63,12 +63,22 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
-      - name: Test SSH
-        run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p ${{ secrets.SSH_PORT }} 'touch ghactions && echo "OK"'
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: github-pages
-      - name: Show structure
-        run: ls -R
+      - name: Extract artifact
+        run: |
+          mkdir -p _site
+          tar -xvf artifact.tar -C _site
+      - name: Upload
+        run: |
+          rsync \
+            --verbose \
+            --recursive \
+            --links \
+            --times \
+            --specials \
+            --rsh 'ssh -p ${{ secrets.SSH_PORT }}' \
+            _site/ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:sharparam.com/public_html/
