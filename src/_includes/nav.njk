@@ -1,5 +1,4 @@
 <nav>
-  {# {{ collections.all | eleventyNavigation | eleventyNavigationToHtml(navOptions) | safe }} #}
   {% set navPages = collections.all | eleventyNavigation %}
   <ul>
     {%- for entry in navPages %}
