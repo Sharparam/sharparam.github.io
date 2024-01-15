@@ -1,0 +1,23 @@
+{
+  "name": "sharparam.github.io",
+  "version": "0.1.0",
+  "description": "Sharparam's personal site",
+  "private": true,
+  "packageManager": "yarn@4.0.2",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "build:debug": "DEBUG=Eleventy* npx @11ty/eleventy",
+    "build:benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve --quiet",
+    "start:debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-navigation": "^0.3.5",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "luxon": "^3.4.4",
+    "markdown-it-anchor": "^8.6.7",
+    "typescript": "^5.3.3"
+  }
+}

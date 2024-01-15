@@ -1,0 +1,10 @@
+---
+layout: default
+permalink: /blog/{{ page.date | postUrlDate }}/{{ (slug or title) | slugify }}/
+---
+
+<article class="post">
+  <h1>{{ title }}</h1>
+  <p class="metadata"><time datetime="{{ page.date | htmlDate }}">{{ page.date | humanDate }}</time></p>
+  {{ content | safe }}
+</article>

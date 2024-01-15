@@ -1,0 +1,92 @@
+body {
+  background: #383842;
+  color: #ededed;
+  font-family: "Cascadia Code", monospace, monospace;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: justify;
+}
+
+code,
+pre,
+kbd {
+  font-family: "Cascadia Code", monospace, monospace;
+}
+
+a {
+  color: #0ac223;
+}
+
+a:visited {
+  color: #0ac223;
+}
+
+li.primary {
+  font-weight: bold;
+}
+
+dl > dt {
+  font-weight: bold;
+}
+
+dl.pgp-info {
+  text-align: left;
+}
+
+figure.highlight > pre {
+  border-radius: 5px;
+  padding: 0.7rem;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li.current a {
+  font-weight: bold;
+}
+
+nav ul li a::before {
+  content: "« ";
+}
+
+nav ul li a::after {
+  content: " »";
+}
+
+nav ul li.current a::before {
+  content: "» ";
+}
+
+nav ul li.current a::after {
+  content: " «";
+}
+
+footer {
+  margin: 3rem auto 5rem;
+  text-align: center;
+}
+
+footer > * {
+  margin: 0.5rem auto 0;
+}
+
+footer ul.socials {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul.socials li {
+  display: inline-block;
+}
+
+footer ul.socials li:not(:last-child)::after {
+  content: "|";
+}
