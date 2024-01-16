@@ -1,25 +1,100 @@
+:root {
+  --code-font: "Cascadia Code", monospace, monospace;
+  --color-link: hsl(var(--ctp-blue-hsl));
+  --color-link-visited: hsl(
+    var(--ctp-lavender-hsl-h) var(--ctp-lavender-hsl-s)
+      calc(var(--ctp-lavender-hsl-l) - 10%)
+  );
+  --color-link-hover: hsl(
+    var(--ctp-sky-hsl-h) var(--ctp-sky-hsl-s) calc(var(--ctp-sky-hsl-l) - 10%)
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-link: hsl(var(--ctp-blue-hsl));
+    --color-link-visited: hsl(var(--ctp-lavender-hsl));
+    --color-link-hover: hsl(var(--ctp-sky-hsl));
+  }
+}
+
 body {
-  background: #383842;
-  color: #ededed;
-  font-family: "Cascadia Code", monospace, monospace;
+  background: var(--ctp-base);
+  color: var(--ctp-text);
+  font-family: sans-serif;
+  font-size: 1em;
   max-width: 900px;
   margin: 0 auto;
   padding: 0 2rem;
   text-align: justify;
 }
 
+::selection {
+  background: var(--ctp-surface2);
+  opacity: 0.4;
+}
+
 code,
 pre,
 kbd {
-  font-family: "Cascadia Code", monospace, monospace;
+  font-family: var(--code-font);
 }
 
 a {
-  color: #0ac223;
+  color: var(--color-link);
 }
 
 a:visited {
-  color: #0ac223;
+  color: var(--color-link-visited);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+ins {
+  color: var(--ctp-green);
+  text-decoration: underline;
+}
+
+del {
+  color: var(--ctp-red);
+  text-decoration: line-through;
+}
+
+button,
+input,
+select,
+textarea {
+  /* appearance: none; */
+  color: var(--ctp-text);
+  background: none;
+  font-family: inherit;
+  font-size: 100%;
+  border-color: var(--ctp-overlay0);
+  border-radius: 0.3em;
+}
+
+textarea {
+  overflow: auto;
+}
+
+button:focus,
+button:hover,
+input:focus,
+select:focus,
+textarea:focus {
+  background-color: var(--ctp-mantle);
+  border-color: var(--ctp-lavender);
+}
+
+button:active,
+select:active {
+  background-color: var(--ctp-crust);
+}
+
+select:active {
+  border-color: var(--ctp-yellow);
 }
 
 li.primary {

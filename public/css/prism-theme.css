@@ -1,0 +1,260 @@
+/**
+ * Catppuccin dynamic (
+ * If this is an adaptation of an existing theme, credit the creator and/or leave a link to it!
+ * @author Adam Hellberg (@Sharparam)
+ */
+
+/**
+ * Prism supports IE11, which does not support CSS variables
+ * However, you are encouraged to leave a list of colours you use here
+ * so that when we transition to Prism V2 (and drop support for IE11),
+ * the transition will be a little easier!
+ */
+
+/**
+ * How to use this template:
+ *
+ * This file contains all the boilerplate necessary for a Prism theme along with template rules for you to fill in.
+ *
+ * All properties with the value `unset` are for you to change.
+ * You should fill in all `color` and `background` properties.
+ * If you don't need an `unset` property (e.g. `border-radius`), then feel free to remove it.
+ * You are also free to add more properties that aren't stated, such as `text-shadow`.
+ * If you wish to style the plugins, you may grab their selectors from their respective .css files in the template folder.
+ *
+ * Your finished theme should have all `unset` properties either filled in or removed.
+ */
+
+/* Set the main properties of the code, code blocks, and inline code */
+code[class*="language-"],
+pre[class*="language-"] {
+  background: var(--ctp-crust);
+  color: var(--ctp-text);
+  font-family: var(--code-font);
+
+  /* The following properties are standard, please leave them as they are */
+  font-size: 1em;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+
+  /* The default is 4, but you could change it if you really, really want to */
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  /* The following properties are also standard */
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Optional: What the code looks like when highlighted */
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection,
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection,
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection {
+  background: var(--ctp-surface2);
+  color: inherit;
+  opacity: 0.4;
+}
+
+/* Properties specific to code blocks */
+pre[class*="language-"] {
+  padding: 1em; /* this is standard */
+  margin: 0.5em 0; /* this is the default */
+  overflow: auto; /* this is standard */
+  border-radius: unset;
+}
+
+/* Properties specific to inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em; /* this is the default */
+  border-radius: unset;
+  white-space: normal; /* this is standard */
+}
+
+/**
+ * These are the minimum tokens you must style, you can rearrange them and/or style more tokens as you want
+ * The concepts behind these standard tokens, as well as some examples, can be found here: https://prismjs.com/tokens.html
+ */
+
+.token.keyword,
+.token.important,
+.token.atrule {
+  color: var(--ctp-mauve);
+}
+
+.token.builtin {
+  color: var(--ctp-red);
+}
+
+.token.class-name {
+  color: var(--ctp-yellow);
+}
+
+.token.function {
+  color: var(--ctp-blue);
+}
+
+.token.boolean,
+.token.number {
+  color: var(--ctp-peach);
+}
+
+.token.string,
+.token.char,
+.token.cdata,
+.token.regex {
+  color: var(--ctp-green);
+}
+
+.token.symbol {
+  color: var(--ctp-red);
+}
+
+.token.url {
+  color: var(--ctp-blue);
+}
+
+.token.operator {
+  color: var(--ctp-teal);
+}
+
+.token.variable {
+  color: var(--ctp-text);
+}
+
+.token.constant {
+  color: var(--ctp-peach);
+}
+
+.token.property {
+  color: var(--ctp-blue);
+}
+
+.token.punctuation {
+  color: var(--ctp-overlay2);
+}
+
+.token.comment {
+  color: var(--ctp-overlay0);
+}
+
+.token.tag {
+  color: var(--ctp-blue);
+}
+
+.token.attr-name {
+  color: var(--ctp-yellow);
+}
+
+.token.attr-value {
+  color: var(--ctp-green);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.prolog {
+  color: var(--ctp-text);
+}
+
+.token.doctype {
+  color: var(--ctp-text);
+}
+
+.token.entity {
+  color: var(--ctp-red);
+  cursor: help;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.selector {
+  color: var(--ctp-yellow);
+}
+
+.token.inserted {
+  background-color: hsl(var(--ctp-green-hsl) / 20%);
+}
+
+.token.deleted {
+  background-color: hsl(var(--ctp-red-hsl) / 20%);
+}
+
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+  user-select: none;
+  margin-right: 0.5em;
+  padding: 0 0.2em;
+}
+
+.token.prefix.inserted {
+  color: var(--ctp-green);
+}
+
+.token.prefix.deleted {
+  color: var(--ctp-red);
+}
+
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+  display: block;
+  /* display: inline-block; */
+  /* width: 100%; */
+}
+
+/* LANGUAGE-SPECIFIC OVERRIDES */
+/* If you'd like your theme to have overrides for specific languages, here's an example, you can remove it and/or add more overrides */
+/* .language-css .token.important {
+  color: unset;
+} */
+
+/* Eleventy hacks */
+pre {
+  counter-reset: lineNumber;
+}
+
+code .highlight-line::before {
+  border-right: 1px solid var(--ctp-surface0);
+  color: var(--ctp-overlay1);
+  content: counter(lineNumber);
+  counter-increment: lineNumber;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  margin-right: 1.2em;
+  padding-right: 1.2em;
+  text-align: right;
+  width: 2.4em;
+  user-select: none;
+}
+
+pre[class*="language-"]
+  > code[class*="language-"]
+  > mark.highlight-line.highlight-line-active {
+  display: inline-block;
+  width: 100%;
+  color: inherit;
+  background-color: hsl(var(--ctp-yellow-hsl) / 15%);
+}
+
+code mark.highlight-line.highlight-line-active::before {
+  color: var(--ctp-yellow);
+}
