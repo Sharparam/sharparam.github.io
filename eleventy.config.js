@@ -11,7 +11,15 @@ export default function (config) {
   config.addPlugin(EleventyHtmlBasePlugin);
   config.addPlugin(navigationPlugin);
   config.addPlugin(rssPlugin);
-  config.addPlugin(syntaxPlugin);
+  config.addPlugin(syntaxPlugin, {
+    lineSeparator: "<br>",
+    preAttributes: {
+      tabindex: 0,
+      "data-language": function ({ language, content, options }) {
+        return language;
+      }
+    }
+  });
 
   config.addPassthroughCopy({
     "./public/": "/"
