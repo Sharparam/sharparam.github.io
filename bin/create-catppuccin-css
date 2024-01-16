@@ -26,11 +26,14 @@ processed = [
 names = Set.new
 
 lines.each do |line|
+  var, content = line.split(': ')
+  parts = var.split('-')
+  variant = parts[3]
+  next unless variant == LIGHT_VARIANT || variant == DARK_VARIANT
+  name = parts[4]
+  names.add name
   processed.push "  #{line}"
   next unless line.include?('-hsl:')
-  var, content = line.split(': ')
-  name = var.split('-')[4]
-  names.add name
   trio = %w[h s l].zip(content.split(' ').tap { |a| a[2].chop! }).map { |s, v| "  #{var}-#{s}: #{v};" }
   processed.concat trio
 end
