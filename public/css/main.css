@@ -10,6 +10,11 @@
   );
 }
 
+* {
+  box-sizing: border-box;
+  border: 0;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-link: hsl(var(--ctp-blue-hsl));
@@ -22,11 +27,65 @@ body {
   background: var(--ctp-base);
   color: var(--ctp-text);
   font-family: sans-serif;
-  font-size: 1em;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  font-size: 1rem;
   text-align: justify;
+}
+
+header {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.5em 1.5em 1em;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin: 1rem 0 0;
+}
+
+@media (width >= 600px) {
+  body {
+    font-size: 1.1rem;
+  }
+
+  header h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (width >= 1200px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  header h1 {
+    font-size: 5rem;
+  }
+}
+
+main {
+  max-width: 70em;
+  margin: 0 auto;
+}
+
+article {
+  max-width: 100%;
+  padding: 1em 1.5em 1.5em;
+  width: 37.5em;
+  margin: 0 auto;
+}
+
+footer > * {
+  margin: 0;
+}
+
+footer > * + * {
+  margin: 0.5rem auto 0;
+}
+
+main > article > *:first-child {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 ::selection {
@@ -34,14 +93,12 @@ body {
   opacity: 0.4;
 }
 
-code,
-pre,
-kbd {
-  font-family: var(--code-font);
-}
-
 a {
   color: var(--color-link);
+}
+
+nav ul li a {
+  text-decoration: none;
 }
 
 a:visited {
@@ -49,6 +106,14 @@ a:visited {
 }
 
 a:hover {
+  color: var(--color-link-hover);
+}
+
+a.header-anchor:visited {
+  color: var(--color-link);
+}
+
+a.header-anchor:hover {
   color: var(--color-link-hover);
 }
 
@@ -109,14 +174,10 @@ dl.pgp-info {
   text-align: left;
 }
 
-figure.highlight > pre {
-  border-radius: 5px;
-  padding: 0.7rem;
-}
-
 nav ul {
   list-style: none;
   text-align: center;
+  margin: 0;
   padding: 0;
 }
 
@@ -126,6 +187,14 @@ nav ul li {
 
 nav ul li.current a {
   font-weight: bold;
+}
+
+nav ul li a:visited {
+  color: var(--color-link);
+}
+
+nav ul li a:hover {
+  color: var(--color-link-hover);
 }
 
 nav ul li a::before {
@@ -145,12 +214,10 @@ nav ul li.current a::after {
 }
 
 footer {
-  margin: 3rem auto 5rem;
+  background: var(--ctp-crust);
+  padding: 3rem;
+  font-size: smaller;
   text-align: center;
-}
-
-footer > * {
-  margin: 0.5rem auto 0;
 }
 
 footer ul.socials {

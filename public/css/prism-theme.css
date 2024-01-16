@@ -26,6 +26,9 @@
  */
 
 /* Set the main properties of the code, code blocks, and inline code */
+code,
+pre,
+kbd,
 code[class*="language-"],
 pre[class*="language-"] {
   background: var(--ctp-crust);
@@ -42,22 +45,26 @@ pre[class*="language-"] {
   line-height: 1.5;
 
   /* The default is 4, but you could change it if you really, really want to */
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
+  tab-size: 2;
 
   /* The following properties are also standard */
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
   hyphens: none;
 }
 
+code.language-cs,
+code.language-csharp,
+pre.language-cs,
+pre.language-csharp {
+  tab-size: 4;
+}
+
 /* Optional: What the code looks like when highlighted */
-code[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection,
-pre[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
+code::selection,
+code ::selection,
+pre::selection,
+pre ::selection,
+kbd::selection,
+kbd ::selection,
 code[class*="language-"]::selection,
 code[class*="language-"] ::selection,
 pre[class*="language-"]::selection,
@@ -68,17 +75,21 @@ pre[class*="language-"] ::selection {
 }
 
 /* Properties specific to code blocks */
+pre,
 pre[class*="language-"] {
   padding: 1em; /* this is standard */
   margin: 0.5em 0; /* this is the default */
   overflow: auto; /* this is standard */
-  border-radius: unset;
+  border-radius: 0.4em;
+  font-size: 1rem;
 }
 
 /* Properties specific to inline code */
+:not(pre) > code,
+:not(pre) > kbd,
 :not(pre) > code[class*="language-"] {
-  padding: 0.1em; /* this is the default */
-  border-radius: unset;
+  padding: 0.1em 0.2em; /* this is the default */
+  border-radius: 0.4em;
   white-space: normal; /* this is standard */
 }
 
@@ -217,12 +228,15 @@ pre[class*="language-"] {
 .token.inserted:not(.prefix),
 .token.deleted:not(.prefix) {
   display: block;
+
   /* display: inline-block; */
+
   /* width: 100%; */
 }
 
-/* LANGUAGE-SPECIFIC OVERRIDES */
-/* If you'd like your theme to have overrides for specific languages, here's an example, you can remove it and/or add more overrides */
+/* LANGUAGE-SPECIFIC OVERRIDES
+* If you'd like your theme to have overrides for specific languages, here's an example, you can remove it and/or add more overrides */
+
 /* .language-css .token.important {
   color: unset;
 } */
