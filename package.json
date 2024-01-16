@@ -22,6 +22,7 @@
   "scripts": {
     "lint:eslint": "eslint --cache .",
     "lint:ts": "tsc --pretty --noEmit",
+    "lint:prettier": "prettier --check .",
     "build": "eleventy",
     "build:debug": "DEBUG=Eleventy* eleventy",
     "build:benchmark": "DEBUG=Eleventy:Benchmark* eleventy",
