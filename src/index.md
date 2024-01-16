@@ -18,6 +18,6 @@ If you’d like to read more about me, check out the [about](/about) page.
 
 Want to get in touch? Check out [the contact page](/contact) for information on how to reach me.
 
-*Maybe one day I’ll start writing a blog again…*
+_Maybe one day I’ll start writing a blog again…_
 
 [github-sharparam]: https://github.com/Sharparam

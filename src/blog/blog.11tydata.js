@@ -1,6 +1,4 @@
 export default {
-  tags: [
-    'posts'
-  ],
-  layout: 'post'
+  tags: ["posts"],
+  layout: "post"
 };

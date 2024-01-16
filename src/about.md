@@ -16,7 +16,7 @@ I don’t remember how I ended up with C#, but since my platform at the time was
 The reason for learning Lua was much simpler: World of Warcraft.
 Since the game uses Lua for its AddOn API, I started learning it when I wanted to add functionality to the game.
 
-My very first (at least first *real*) AddOn for WoW was [Chocobo][chocobo-cf].
+My very first (at least first _real_) AddOn for WoW was [Chocobo][chocobo-cf].
 A friend wanted chocobo music from Final Fantasy to play when they used certain mounts in the game reminiscent of the chocobos, so I made it reality!
 
 [chocobo-cf]: https://www.curseforge.com/wow/addons/chocobo
