@@ -31,7 +31,7 @@ export default function (config) {
   config.addLayoutAlias("default", "layouts/default.njk");
   config.addLayoutAlias("post", "layouts/blog/post.njk");
 
-  config.addFilter("htmlDate", (date) =>
+  config.addFilter("htmlDate", date =>
     DateTime.fromJSDate(date, { zone: "utc" }).toFormat("yyyy-LL-dd")
   );
   config.addFilter("humanDate", (date, format, zone) =>
@@ -39,11 +39,11 @@ export default function (config) {
       format || "dd LLLL yyyy"
     )
   );
-  config.addFilter("postUrlDate", (date) =>
+  config.addFilter("postUrlDate", date =>
     DateTime.fromJSDate(date, { zone: "utc" }).toFormat("yyyy/LL/dd")
   );
 
-  config.amendLibrary("md", (md) => {
+  config.amendLibrary("md", md => {
     md.use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.ariaHidden({
         placement: "after",
