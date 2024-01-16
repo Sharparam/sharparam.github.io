@@ -15,6 +15,7 @@ export default function (config) {
     lineSeparator: "<br>",
     preAttributes: {
       tabindex: 0,
+      // eslint-disable-next-line no-unused-vars
       "data-language": function ({ language, content, options }) {
         return language;
       }
