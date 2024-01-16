@@ -29,6 +29,7 @@ export default function (config) {
 
   config.setLayoutResolution(false);
   config.addLayoutAlias("default", "layouts/default.njk");
+  config.addLayoutAlias("page", "layouts/page.njk");
   config.addLayoutAlias("post", "layouts/blog/post.njk");
 
   config.addFilter("htmlDate", date =>
