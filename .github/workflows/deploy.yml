@@ -29,16 +29,18 @@ jobs:
         run: rm -fv .yarn/install-state.gz
       # - name: Install
       #   run: yarn install --immutable
-      # - name: Build
-      #   run: yarn build
-      - name: Install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+      - name: Install (sudo)
+        run: sudo yarn install --immutable
       - name: Build
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build
+        run: yarn build
+      # - name: Install
+      #   uses: borales/actions-yarn@v4
+      #   with:
+      #     cmd: install
+      # - name: Build
+      #   uses: borales/actions-yarn@v4
+      #   with:
+      #     cmd: build
       - name: Fix permissions
         run: |
           chmod -c -R +rX "dist/" | while read line; do
