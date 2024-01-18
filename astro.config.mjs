@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-// import { searchForWorkspaceRoot } from "vite";
+import { searchForWorkspaceRoot } from "vite";
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -39,7 +39,7 @@ export default defineConfig({
     server: {
       fs: {
         // strict: false
-        // allow: [searchForWorkspaceRoot(process.cwd()), "/home/sharparam/.yarn"]
+        allow: [searchForWorkspaceRoot(process.cwd()), "/home/sharparam/.yarn"]
       }
     }
   }
