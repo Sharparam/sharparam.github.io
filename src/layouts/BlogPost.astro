@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+
+type Props = CollectionEntry<"blog">["data"];
+
+const { title, pubDate, ...seo } = Astro.props;
+---
+
+<Layout {title} {pubDate} og={{ type: "article" }} {...seo}>
+  <article class="post">
+    <h1>{title}</h1>
+    <p class="metadata">Published <FormattedDate date={pubDate} />.</p>
+    <slot />
+  </article>
+</Layout>

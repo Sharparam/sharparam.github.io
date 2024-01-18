@@ -76,7 +76,7 @@ processed.concat [
 
 text = processed.join("\n")
 
-path = File.join(repo_root, 'public', 'css', 'catppuccin.css')
+path = File.join(repo_root, 'src', 'styles', 'catppuccin.css')
 File.write(path, text)
 
 puts "Done!"

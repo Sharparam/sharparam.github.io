@@ -1,1 +1,1 @@
-Sitemap: https://sharparam.com/sitemap.xml
+Sitemap: https://sharparam.com/sitemap-index.xml

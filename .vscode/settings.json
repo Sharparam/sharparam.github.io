@@ -3,9 +3,16 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
-  "eslint.nodePath": ".yarn/sdks",
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.cjs",
-  "stylelint.packageManager": "yarn",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "astro"
+  ],
+  "stylelint.validate": ["css", "scss", "less", "postcss", "html", "astro"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "astro.language-server.ls-path": "node_modules/@astrojs/language-server/bin/nodeServer.js",
   "[json]": {
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
@@ -26,17 +33,18 @@
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
   },
+  "[mdx]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-mdx",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
   "[html]": {
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
   },
   "[xml]": {
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
-  },
-  "[nunjucks]": {
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
@@ -62,6 +70,12 @@
     "editor.formatOnSaveMode": "file"
   },
   "[typescript]": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"

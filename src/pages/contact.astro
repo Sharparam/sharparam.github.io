@@ -1,0 +1,80 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { site } from "../consts";
+---
+
+<Layout title="Contact" description="Lots of fun ways to get in touch with me!">
+  <article>
+    <h1>Contact me</h1>
+    <p>
+      You can find a variety of my social profiles in the footer, and can use
+      any of them to contact me.
+    </p>
+    <p>
+      If you’d like to send encrypted email to me, you can do so using my PGP
+      key. You can find my PGP public key on <a
+        href="https://keybase.io/sharparam">my Keybase profile</a
+      >, or on your favourite keyserver (I upload to the major ones, and from
+      there they should propagate further).
+    </p>
+
+    <p>My key details:</p>
+    <dl class="pgp-info">
+      <dt>Size and type</dt>
+      <dd>4096 bits RSA</dd>
+      <dt>Short ID</dt>
+      <dd>7B00AD04</dd>
+      <dt>Long ID</dt>
+      <dd>C58C41E27B00AD04</dd>
+      <dt>Fingerprint</dt>
+      <dd>A6B6 5DCE 2EB7 BEAE 9600 74E6 C58C 41E2 7B00 AD04</dd>
+      <dt>Created</dt>
+      <dd>2020-02-13</dd>
+      <dt>UIDs</dt>
+      <dd>
+        <ul>
+          <li class="primary">
+            Adam Hellberg (Personal) &lt;<a
+              href="mailto:sharparam@sharparam.com">sharparam@sharparam.com</a
+            >&gt;
+          </li>
+          <li>
+            Adam Hellberg (Personal) &lt;<a
+              href="mailto:adam.hellberg@sharparam.com"
+              >adam.hellberg@sharparam.com</a
+            >&gt;
+          </li>
+          <li>
+            Adam Hellberg (Work) &lt;<a href="mailto:adam.hellberg@ninetech.com"
+              >adam.hellberg@ninetech.com</a
+            >&gt;
+          </li>
+        </ul>
+      </dd>
+    </dl>
+    <p>
+      My domain also supports <a href="https://wiki.gnupg.org/WKD">WKD</a> if you’d
+      like to make use of that for discovering my keys.
+    </p>
+    <h2>Social profiles</h2>
+    <ul>
+      {
+        site.socials.map(s => (
+          <li>
+            <a href={s.url}>{s.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </article>
+</Layout>
+
+<style>
+  dl.pgp-info {
+    text-align: left;
+  }
+
+  dl.pgp-info li.primary {
+    font-weight: bold;
+  }
+</style>

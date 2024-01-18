@@ -25,16 +25,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
+      - name: Install
+        run: yarn install --immutable
       - name: Build
-        run: |
-          yarn build
+        run: yarn build
       - name: Fix permissions
         run: |
-          chmod -c -R +rX "_site/" | while read line; do
+          chmod -c -R +rX "dist/" | while read line; do
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
       - name: Upload
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
   deploy:
     environment:
       name: github-pages
@@ -69,8 +72,8 @@ jobs:
           name: github-pages
       - name: Extract artifact
         run: |
-          mkdir -p _site
-          tar -xvf artifact.tar -C _site
+          mkdir -p dist
+          tar -xvf artifact.tar -C dist
       - name: Upload
         run: |
           rsync \
@@ -80,5 +83,5 @@ jobs:
             --times \
             --specials \
             --rsh 'ssh -p ${{ secrets.SSH_PORT }}' \
-            _site/ \
+            dist/ \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:sharparam.com/public_html/

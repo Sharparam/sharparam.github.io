@@ -1,0 +1,37 @@
+---
+import "@styles/catppuccin.css";
+import "@styles/normalize.css";
+import "@styles/main.css";
+// import "@styles/prism-theme.css";
+
+import SEO, { type Props as SEOProps } from "./SEO.astro";
+import { site } from "../consts";
+
+export type Props = Partial<SEOProps>;
+
+const {
+  title = site.title,
+  description = site.description,
+  ...seo
+} = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="generator" content={Astro.generator} />
+<SEO {title} {description} {...seo} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  href="/feed.xml"
+  type="application/atom+xml"
+  title={site.title}
+/>
+<link
+  rel="alternate"
+  href="/feed.json"
+  type="application/json"
+  title={site.title}
+/>

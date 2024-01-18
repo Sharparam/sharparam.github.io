@@ -1,0 +1,58 @@
+---
+import { site } from "../consts";
+
+const socials = site.socials.filter(s => s.footer);
+---
+
+<footer>
+  <p>
+    &copy; 2020-2024 by <a href="https://github.com/Sharparam">Adam Hellberg</a
+    >.
+  </p>
+  <p>
+    Content is licensed under a <a
+      href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC-BY-NC-ND</a
+    > license.
+  </p>
+  <ul class="socials">
+    {
+      socials.map(s => (
+        <li>
+          <a href={s.url}>{s.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>
+
+<style>
+  footer {
+    background: var(--ctp-crust);
+    padding: 3rem;
+    font-size: smaller;
+    text-align: center;
+  }
+
+  footer > * {
+    margin: 0;
+  }
+
+  footer > * + * {
+    margin: 0.5rem auto 0;
+  }
+
+  footer ul.socials {
+    list-style: none;
+    padding: 0;
+  }
+
+  footer ul.socials li {
+    display: inline-block;
+  }
+
+  footer ul.socials li:not(:last-child) {
+    margin-right: 0.5em;
+    padding-right: 0.5em;
+    border-right: 1px solid var(--ctp-text);
+  }
+</style>

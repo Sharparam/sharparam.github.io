@@ -1,0 +1,32 @@
+---
+import BaseHead, {
+  type Props as BaseHeadProps
+} from "@components/BaseHead.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { site } from "../consts";
+
+type Props = Partial<BaseHeadProps>;
+
+let { title = site.title, ...head } =
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  (Astro.props as any).frontmatter || Astro.props;
+if (title !== site.title) {
+  title = `${title} | ${site.title}`;
+}
+---
+
+<!doctype html>
+<html lang={site.language}>
+  <head>
+    <BaseHead {title} {...head} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
