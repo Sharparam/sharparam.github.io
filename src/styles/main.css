@@ -24,33 +24,33 @@
   border: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   background: var(--ctp-base);
   color: var(--ctp-text);
   font-family: sans-serif;
   font-size: 1rem;
   text-align: justify;
-}
 
-header {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 1.5em 1.5em 1em;
-  text-align: center;
-}
+  height: 100%;
 
-header h1 {
-  font-size: 2.5rem;
-  margin: 1rem 0 0;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows:
+    auto
+    auto
+    1fr;
 }
 
 @media (width >= 600px) {
   body {
     font-size: 1.1rem;
-  }
-
-  header h1 {
-    font-size: 3.5rem;
   }
 }
 
@@ -58,27 +58,51 @@ header h1 {
   body {
     font-size: 1.2rem;
   }
-
-  header h1 {
-    font-size: 5rem;
-  }
 }
 
 main {
-  max-width: 70em;
   margin: 0 auto;
+  width: 100%;
 }
 
-article {
-  max-width: 100%;
-  padding: 1em 1.5em 1.5em;
-  width: 37.5em;
-  margin: 0 auto;
+main > article {
+  --breakout-width: 2rem;
+  --max-content-width: min(65ch, calc(100% - var(--breakout-width) * 2));
+
+  grid-area: main;
+
+  display: grid;
+  grid-template-columns:
+    [grid-start] 1fr
+    [breakout-start] var(--breakout-width)
+    [content-start] var(--max-content-width)
+    [content-end] var(--breakout-width)
+    [breakout-end] 1fr
+    [grid-end];
+  row-gap: 1rem;
+  width: 100%;
+  margin: 5vb auto;
 }
 
-main > article > *:first-child {
+main > article * {
+  margin: 0;
+}
+
+main > article:first-child {
   margin-top: 0;
-  padding-top: 0;
+}
+
+main > article > * {
+  grid-column: content;
+}
+
+main > article > .breakout {
+  grid-column: breakout;
+}
+
+main > article > .full-bleed {
+  width: 100%;
+  grid-column: grid;
 }
 
 ::selection {
@@ -152,6 +176,7 @@ pre.astro-code span {
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
 }
+
 button,
 input,
 select,
