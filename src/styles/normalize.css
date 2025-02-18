@@ -65,6 +65,7 @@ hr {
  */
 
 pre {
+  /* biome-ignore lint/suspicious/noDuplicateFontNames: https://github.com/necolas/normalize.css/issues/519 */
   font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
@@ -108,6 +109,7 @@ strong {
 code,
 kbd,
 samp {
+  /* biome-ignore lint/suspicious/noDuplicateFontNames: https://github.com/necolas/normalize.css/issues/519 */
   font-family: monospace, monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
