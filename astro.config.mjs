@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import { searchForWorkspaceRoot } from "vite";
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -33,14 +32,6 @@ export default defineConfig({
         dark: ctpFrappe
       }
       // themes: [ctpLatte, ctpFrappe]
-    }
-  },
-  vite: {
-    server: {
-      fs: {
-        // strict: false
-        allow: [searchForWorkspaceRoot(process.cwd()), "/home/sharparam/.yarn"]
-      }
     }
   }
 });
