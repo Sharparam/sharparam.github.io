@@ -12,7 +12,9 @@
   },
   "formatter": {
     "enabled": true,
-    "useEditorconfig": true
+    "useEditorconfig": true,
+    "attributePosition": "auto",
+    "bracketSpacing": true
   },
   "organizeImports": {
     "enabled": true
@@ -25,7 +27,13 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double"
+      "arrowParentheses": "asNeeded",
+      "bracketSameLine": false,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "none"
     }
   }
 }
