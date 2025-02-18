@@ -35,5 +35,19 @@
       "semicolons": "always",
       "trailingCommas": "none"
     }
-  }
+  },
+  "overrides": [
+    {
+      // https://biomejs.dev/internals/language-support/#html-super-languages-support
+      "include": ["*.astro"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ]
 }
