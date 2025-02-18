@@ -26,6 +26,7 @@
     "build": "NODE_ENV=production astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "lint": "biome lint",
     "lint:eslint": "eslint --ext .js,.ts,.astro src",
     "lint:ts": "tsc --pretty --noEmit",
     "lint:prettier": "prettier --check ."
