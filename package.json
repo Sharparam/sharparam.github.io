@@ -30,29 +30,35 @@
     "lint:ts": "tsc --pretty --noEmit"
   },
   "dependencies": {
-    "astro": "5.3.0"
+    "astro": "5.13.2"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/language-server": "2.15.4",
-    "@astrojs/markdown-remark": "6.1.0",
-    "@astrojs/mdx": "4.0.8",
-    "@astrojs/rss": "4.0.11",
-    "@astrojs/sitemap": "3.2.1",
-    "@biomejs/biome": "^1.9.4",
-    "@catppuccin/vscode": "^3.16.1",
-    "@sentry/astro": "^9.1.0",
+    "@astrojs/markdown-remark": "6.3.6",
+    "@astrojs/mdx": "4.3.4",
+    "@astrojs/rss": "4.0.12",
+    "@astrojs/sitemap": "3.5.0",
+    "@biomejs/biome": "^2.2.0",
+    "@catppuccin/vscode": "^3.17.0",
+    "@sentry/astro": "^10.5.0",
     "@sindresorhus/slugify": "^2.2.1",
-    "@spotlightjs/astro": "^2.4.3",
-    "@types/sanitize-html": "^2.13.0",
-    "@volar/language-server": "^2.4.11",
-    "postcss": "^8.5.2",
+    "@spotlightjs/astro": "^3.2.6",
+    "@types/sanitize-html": "^2.16.0",
+    "@volar/language-server": "^2.4.23",
+    "postcss": "^8.5.6",
     "postcss-html": "^1.8.0",
-    "sanitize-html": "^2.14.0",
-    "typescript": "^5.7.3"
+    "sanitize-html": "^2.17.0",
+    "typescript": "^5.9.2"
   },
   "engines": {
     "node": ">=22"
   },
-  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af"
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@sentry/cli",
+      "esbuild"
+    ]
+  }
 }
